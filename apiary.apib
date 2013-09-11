@@ -344,69 +344,58 @@ The following is a section of resources related to Users
 --
 
 Get User
-GET /users/UUID
+GET /users/UUID[?expand=properties]
 < 200
 < Content-Type: application/json
 {
   "url": "/users/UUID",
   "email": "louis@gmail.com",
   "uuid": "UUID",
+  "properties": [
+      { "url": "/user-properies/UUID" }
+  ],
+  "marketingDb": { "url": "/databases/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
-List Segment for specific Marketing DB
-GET /segments?database=UUID
-< 200
-< Content-Type: application/json
-{
-  "url": "/segments?database=UUID",
-  "offset": 0,
-  "limit": 50,
-  "first": {"url": "/segments?database=UUID&offset=0"},
-  "prev": null,
-  "next": {"url": "/segments?database=UUID&offset=50"},
-  "last": {"url": "/segments?database=UUID&offset=100"},
-  "items": [
-{
-  "url": "/manager-invitations/UUID"
-  // ... other fields omitted for brevity
-}
-]}
-
-Create new Segment
-PUT /segments/UUID
+Create User
+PUT /users/UUID
 > Content-Type: application/json
 {
-  "name": "Segment 1",
-  "query": "some query",
-  "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
+  "email": "louis@gmail.com",
+  "uuid": "UUID",
+  "properties": [
+      { "url": "/user-properies/UUID"
+        // ... other fields omitted for brevity
+      }
+  ],
   "marketingDb": { "url": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segments/UUID"
+  "url": "/users/UUID"
   // ... other fields omitted for brevity
 }
 
-Update Segment
-POST /segments/UUID
+Update User
+POST /users/UUID
 > Content-Type: application/json
 {
-  "name": "Segment 2",
-  "query": "some query updated",
-  "rebuildFrequency": "WEEKLY" // HOURLY / DAILY / WEEKLY / MONTHLY
+  "properties": [
+      { "url": "/user-properies/UUID" }
+  ]
 }
 < 200
 < Content-Type: application/json
 {
-  "url": "/segments/UUID"
+  "url": "/users/UUID"
   // ... other fields omitted for brevity
 }
 
-Delete Segment
-DELETE /segments/UUID
+Delete User
+DELETE /users/UUID
 < 204
 
 
