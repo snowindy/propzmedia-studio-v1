@@ -12,53 +12,53 @@ The following is a section of resources related to Marketing Databases
 --
 
 Get Marketing Database
-GET /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /databases/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "url": "/databases/UUID",
   "name": "SocioMMA",
   "inChargeMgr": { // Optional
-    "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+    "url": "/managers/UUID"
   },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
 Create new Marketing Database
-PUT /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+PUT /databases/UUID
 > Content-Type: application/json
 {
   "name": "SocioMMA",
   "inChargeMgr": { // Optional
-    "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+    "url": "/managers/UUID"
   }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/databases/UUID"
   // ... other fields omitted for brevity
 }
 
 Update Marketing Database
-POST /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+POST /databases/UUID
 > Content-Type: application/json
 {
   "name": "SuccessoClub",
   "inChargeMgr": { // Optional
-    "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+    "url": "/managers/UUID"
   }
 }
 < 200
 < Content-Type: application/json
 {
-  "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/databases/UUID"
   // ... other fields omitted for brevity
 }
 
 Delete Marketing database
-DELETE /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+DELETE /databases/UUID
 < 204
 
 
@@ -69,16 +69,16 @@ The following is a section of resources related to Credentials
 --
 
 Get Credential
-GET /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /credentials/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
-  "apiKey": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Optional
-  "targetMgr": { "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }, // Optional
+  "url": "/credentials/UUID",
+  "apiKey": "UUID", // Optional
+  "targetMgr": { "url": "/managers/UUID" }, // Optional
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
-  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "marketingDb": { "url": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
@@ -99,36 +99,36 @@ GET /credentials
     "last": {"url": "/credentials?offset=100"},
     "items": [
 {
-  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/credentials/UUID"
   // ... other fields omitted for brevity
 }
 ] }
 
 Create new Credential for given Marketing DB
-PUT /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+PUT /credentials/UUID
 > Content-Type: application/json
 {
-  "apiKey": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Optional
-  "apiSecret": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
-  "targetMgr": { "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }, // Optional
+  "apiKey": "UUID", // Optional
+  "apiSecret": "UUID", // Password to be encrypted. Optional
+  "targetMgr": { "url": "/managers/UUID" }, // Optional
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
-  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "marketingDb": { "url": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/credentials/UUID"
   // ... other fields omitted for brevity
 }
 
 Update Credential
-POST /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+POST /credentials/UUID
 > Content-Type: application/json
 {
-  "apiSecret": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+  "apiSecret": "UUID", // Password to be encrypted. Optional
   "accessLevel": "WRITE", // STAFF / ADMIN / WRITE / READ
   "active": false,
   "type": "WS", // CONSOLE / WS
@@ -137,12 +137,12 @@ POST /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
 < 200
 < Content-Type: application/json
 {
-  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/credentials/UUID"
   // ... other fields omitted for brevity
 }
 
 Delete credentialb
-DELETE /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+DELETE /credentials/UUID
 < 204
 
 
@@ -153,11 +153,11 @@ The following is a section of resources related to Managers
 --
 
 Get Manager
-GET /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /managers/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "url": "/managers/UUID",
   "username": "john", 
   "firstName": "John",
   "lastName": "Smith",
@@ -166,33 +166,33 @@ GET /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
 }
 
 Create new Manager. This function is used by SignUp module only.
-PUT /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+PUT /managers/UUID
 > Content-Type: application/json
 {
   "username": "john", 
   "firstName": "John",
   "lastName": "Smith",
-  "password": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+  "password": "UUID", // Password to be encrypted. Optional
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/managers/UUID"
   // ... other fields omitted for brevity
 }
 
 Update Manager
-POST /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+POST /managers/UUID
 > Content-Type: application/json
 {
   "firstName": "Mark",
   "lastName": "Twain",
-  "password": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+  "password": "UUID", // Password to be encrypted. Optional
 }
 < 200
 < Content-Type: application/json
 {
-  "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/managers/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -204,11 +204,11 @@ The following is a section of resources related to Manager Invitations
 --
 
 Get Manager Invitation
-GET /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /manager-invitations/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "url": "/manager-invitations/UUID",
   "email": "john@gmail.com",
   "active": true,
   "sendStatus": "SENT", // NOT_SENT / SENT / FAILURE
@@ -232,13 +232,13 @@ GET /manager-invitations
     "last": {"url": "/manager-invitations?offset=100"},
     "items": [
 {
-  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 ]}
 
 Create new Manager Invitation
-PUT /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+PUT /manager-invitations/UUID
 > Content-Type: application/json
 {
   "email": "john@gmail.com"
@@ -246,12 +246,12 @@ PUT /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
 < 201
 < Content-Type: application/json
 {
-  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 
 Update Manager Invitation
-POST /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+POST /manager-invitations/UUID
 > Content-Type: application/json
 {
   "active": false,
@@ -260,7 +260,7 @@ POST /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
 < 200
 < Content-Type: application/json
 {
-  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -271,57 +271,57 @@ The following is a section of resources related to Segments
 --
 
 Get Segment
-GET /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /segments/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "url": "/segments/UUID",
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
-  "segmentMembership": { "url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "marketingDb": { "url": "/databases/UUID" },
+  "segmentMembership": { "url": "/segment-memberships?segment=UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
 List Segment for specific Marketing DB
-GET /segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /segments?database=UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+    "url": "segments?database=UUID",
     "offset": 0,
     "limit": 50,
-    "first": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=0"},
+    "first": {"url": "/segments?database=UUID&offset=0"},
     "prev": null,
-    "next": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=50"},
-    "last": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=100"},
+    "next": {"url": "/segments?database=UUID&offset=50"},
+    "last": {"url": "/segments?database=UUID&offset=100"},
     "items": [
 {
-  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 ]}
 
 Create new Segment
-PUT /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+PUT /segments/UUID
 > Content-Type: application/json
 {
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }
+  "marketingDb": { "url": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/segments/UUID"
   // ... other fields omitted for brevity
 }
 
 Update Segment
-POST /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+POST /segments/UUID
 > Content-Type: application/json
 {
   "name": "Segment 2",
@@ -331,12 +331,12 @@ POST /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
 < 200
 < Content-Type: application/json
 {
-  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/segments/UUID"
   // ... other fields omitted for brevity
 }
 
 Delete Segment
-DELETE /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+DELETE /segments/UUID
 < 204
 
 
@@ -346,54 +346,54 @@ The following is a section of resources related to Users
 --
 
 Get User
-GET /users/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /users/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/users/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "url": "/users/UUID",
   "email": "louis@gmail.com",
-  "uuid": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "uuid": "UUID",
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
 List Segment for specific Marketing DB
-GET /segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /segments?database=UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+    "url": "segments?database=UUID",
     "offset": 0,
     "limit": 50,
-    "first": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=0"},
+    "first": {"url": "/segments?database=UUID&offset=0"},
     "prev": null,
-    "next": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=50"},
-    "last": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=100"},
+    "next": {"url": "/segments?database=UUID&offset=50"},
+    "last": {"url": "/segments?database=UUID&offset=100"},
     "items": [
 {
-  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 ]}
 
 Create new Segment
-PUT /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+PUT /segments/UUID
 > Content-Type: application/json
 {
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }
+  "marketingDb": { "url": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/segments/UUID"
   // ... other fields omitted for brevity
 }
 
 Update Segment
-POST /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+POST /segments/UUID
 > Content-Type: application/json
 {
   "name": "Segment 2",
@@ -403,12 +403,12 @@ POST /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
 < 200
 < Content-Type: application/json
 {
-  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/segments/UUID"
   // ... other fields omitted for brevity
 }
 
 Delete Segment
-DELETE /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+DELETE /segments/UUID
 < 204
 
 
@@ -418,30 +418,30 @@ The following is a section of resources related to User Segment Memberships
 --
 
 Get Segment Membership
-GET /segment-memberships/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /segment-memberships?user=UUID&segment=UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segment-memberships/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
-  "user": { "url": "/users/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
-  "segment": { "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }
+  "url": "/segment-memberships/UUID",
+  "user": { "url": "/users/UUID" },
+  "segment": { "url": "/segments/UUID" }
 }
 
 List segment memberships
-GET /segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+GET /segment-memberships?segment=UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+    "url": "/segment-memberships?segment=UUID",
     "offset": 0,
     "limit": 50,
-    "first": {"url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=0"},
+    "first": {"url": "/segment-memberships?segment=UUID&offset=0"},
     "prev": null,
-    "next": {"url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=50"},
-    "last": {"url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=100"},
+    "next": {"url": "/segment-memberships?segment=UUID&offset=50"},
+    "last": {"url": "/segment-memberships?segment=UUID&offset=100"},
     "items": [
 {
-  "url": "/segment-memberships/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  "url": "/segment-memberships/UUID"
   // ... other fields omitted for brevity
 }
 ]}
