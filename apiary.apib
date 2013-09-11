@@ -107,7 +107,8 @@ PUT /credentials/UUID
 {
   "apiKey": "UUID", // Optional
   "apiSecret": "UUID", // Password to be encrypted. Optional
-  "targetMgr": { "url": "/managers/UUID" }, // Optional
+  "targetMgr": { "url": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
+  "targetMgrInvitation": { "url": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
   "marketingDb": { "url": "/databases/UUID" },
