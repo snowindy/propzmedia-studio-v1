@@ -1,0 +1,448 @@
+HOST: http://api.propzmedia.com/v1/
+
+--- Propzmedia Studio v1 ---
+
+---
+Welcome to Propzmedia API v1 documentation. All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
+---
+
+--
+Marketing Database Resources
+The following is a section of resources related to Marketing Databases
+--
+
+Get Marketing Database
+GET /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "name": "SocioMMA",
+  "inChargeMgr": { // Optional
+    "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  },
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+Create new Marketing Database
+PUT /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "name": "SocioMMA",
+  "inChargeMgr": { // Optional
+    "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  }
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Update Marketing Database
+POST /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "name": "SuccessoClub",
+  "inChargeMgr": { // Optional
+    "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  }
+}
+< 200
+< Content-Type: application/json
+{
+  "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Delete Marketing database
+DELETE /databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 204
+
+
+
+--
+Credential Resources
+The following is a section of resources related to Credentials
+--
+
+Get Credential
+GET /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "apiKey": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Optional
+  "targetMgr": { "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }, // Optional
+  "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
+  "active": true,
+  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "type": "CONSOLE", // CONSOLE / WS
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+List Credentials for this Manager
+GET /credentials
+< 200
+< Content-Type: application/json
+{ 
+    "url": "/credentials",
+    "offset": 0,
+    "limit": 50,
+    "first": {"url": "/credentials?offset=0"},
+    "prev": null,
+    "next": {"url": "/credentials?offset=50"},
+    "last": {"url": "/credentials?offset=100"},
+    "items": [
+{
+  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+] }
+
+Create new Credential for given Marketing DB
+PUT /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "apiKey": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Optional
+  "apiSecret": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+  "targetMgr": { "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }, // Optional
+  "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
+  "active": true,
+  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "type": "CONSOLE", // CONSOLE / WS
+  "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Update Credential
+POST /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "apiSecret": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+  "accessLevel": "WRITE", // STAFF / ADMIN / WRITE / READ
+  "active": false,
+  "type": "WS", // CONSOLE / WS
+  "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+< 200
+< Content-Type: application/json
+{
+  "url": "/credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Delete credentialb
+DELETE /credentials/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 204
+
+
+
+--
+Manager Resources
+The following is a section of resources related to Managers
+--
+
+Get Manager
+GET /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "username": "john", 
+  "firstName": "John",
+  "lastName": "Smith",
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+Create new Manager. This function is used by SignUp module only.
+PUT /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "username": "john", 
+  "firstName": "John",
+  "lastName": "Smith",
+  "password": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Update Manager
+POST /managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "firstName": "Mark",
+  "lastName": "Twain",
+  "password": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67", // Password to be encrypted. Optional
+}
+< 200
+< Content-Type: application/json
+{
+  "url": "/managers/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+
+
+--
+Manager Invitation Resources
+The following is a section of resources related to Manager Invitations
+--
+
+Get Manager Invitation
+GET /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "email": "john@gmail.com",
+  "active": true,
+  "sendStatus": "SENT", // NOT_SENT / SENT / FAILURE
+  "targetMgr": null, // If null - invitation has not been utilized
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+List Manager Invitation created by this Manager
+GET /manager-invitations
+< 200
+< Content-Type: application/json
+{
+    "url": "/manager-invitations",
+    "offset": 0,
+    "limit": 50,
+    "first": {"url": "/manager-invitations?offset=0"},
+    "prev": null,
+    "next": {"url": "/manager-invitations?offset=50"},
+    "last": {"url": "/manager-invitations?offset=100"},
+    "items": [
+{
+  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+]}
+
+Create new Manager Invitation
+PUT /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "email": "john@gmail.com"
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Update Manager Invitation
+POST /manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "active": false,
+  "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+< 200
+< Content-Type: application/json
+{
+  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+
+--
+Segment Resources
+The following is a section of resources related to Segments
+--
+
+Get Segment
+GET /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "name": "Segment 1",
+  "query": "some query",
+  "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
+  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+List Segment for specific Marketing DB
+GET /segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+    "url": "segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+    "offset": 0,
+    "limit": 50,
+    "first": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=0"},
+    "prev": null,
+    "next": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=50"},
+    "last": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=100"},
+    "items": [
+{
+  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+]}
+
+Create new Segment
+PUT /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "name": "Segment 1",
+  "query": "some query",
+  "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
+  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Update Segment
+POST /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "name": "Segment 2",
+  "query": "some query updated",
+  "rebuildFrequency": "WEEKLY" // HOURLY / DAILY / WEEKLY / MONTHLY
+}
+< 200
+< Content-Type: application/json
+{
+  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Delete Segment
+DELETE /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 204
+
+
+--
+User Resources
+The following is a section of resources related to Users
+--
+
+Get User
+GET /users/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/users/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "email": "louis@gmail.com",
+  "uuid": "4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+List Segment for specific Marketing DB
+GET /segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+    "url": "segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+    "offset": 0,
+    "limit": 50,
+    "first": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=0"},
+    "prev": null,
+    "next": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=50"},
+    "last": {"url": "/segments?database=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=100"},
+    "items": [
+{
+  "url": "/manager-invitations/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+]}
+
+Create new Segment
+PUT /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "name": "Segment 1",
+  "query": "some query",
+  "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
+  "marketingDb": { "url": "/databases/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Update Segment
+POST /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+> Content-Type: application/json
+{
+  "name": "Segment 2",
+  "query": "some query updated",
+  "rebuildFrequency": "WEEKLY" // HOURLY / DAILY / WEEKLY / MONTHLY
+}
+< 200
+< Content-Type: application/json
+{
+  "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+
+Delete Segment
+DELETE /segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 204
+
+
+--
+User Segment Membership Resources
+The following is a section of resources related to User Segment Memberships
+--
+
+Get Segment Membership
+GET /segment-memberships/4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+  "url": "/segment-memberships/4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+  "user": { "url": "/users/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" },
+  "segment": { "url": "/segments/4FAC90E7-8CF1-4180-B47B-09C3A246CB67" }
+}
+
+List segment memberships
+GET /segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67
+< 200
+< Content-Type: application/json
+{
+    "url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67",
+    "offset": 0,
+    "limit": 50,
+    "first": {"url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=0"},
+    "prev": null,
+    "next": {"url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=50"},
+    "last": {"url": "/segment-memberships?segment=4FAC90E7-8CF1-4180-B47B-09C3A246CB67&offset=100"},
+    "items": [
+{
+  "url": "/segment-memberships/4FAC90E7-8CF1-4180-B47B-09C3A246CB67"
+  // ... other fields omitted for brevity
+}
+]}
+
+
