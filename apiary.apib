@@ -43,7 +43,7 @@ POST /databases/UUID
 {
   "name": "SuccessoClub",
   "inChargeMgr": { // Optional
-    "url": "/managers/UUID"
+  "url": "/managers/UUID"
   }
 }
 < 200
@@ -87,14 +87,14 @@ GET /credentials
 < 200
 < Content-Type: application/json
 { 
-    "url": "/credentials",
-    "offset": 0,
-    "limit": 50,
-    "first": {"url": "/credentials?offset=0"},
-    "prev": null,
-    "next": {"url": "/credentials?offset=50"},
-    "last": {"url": "/credentials?offset=100"},
-    "items": [
+  "url": "/credentials",
+  "offset": 0,
+  "limit": 50,
+  "first": {"url": "/credentials?offset=0"},
+  "prev": null,
+  "next": {"url": "/credentials?offset=50"},
+  "last": {"url": "/credentials?offset=100"},
+  "items": [
 {
   "url": "/credentials/UUID"
   // ... other fields omitted for brevity
@@ -221,14 +221,14 @@ GET /manager-invitations
 < 200
 < Content-Type: application/json
 {
-    "url": "/manager-invitations",
-    "offset": 0,
-    "limit": 50,
-    "first": {"url": "/manager-invitations?offset=0"},
-    "prev": null,
-    "next": {"url": "/manager-invitations?offset=50"},
-    "last": {"url": "/manager-invitations?offset=100"},
-    "items": [
+  "url": "/manager-invitations",
+  "offset": 0,
+  "limit": 50,
+  "first": {"url": "/manager-invitations?offset=0"},
+  "prev": null,
+  "next": {"url": "/manager-invitations?offset=50"},
+  "last": {"url": "/manager-invitations?offset=100"},
+  "items": [
 {
   "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -288,14 +288,14 @@ GET /segments?database=UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "segments?database=UUID",
-    "offset": 0,
-    "limit": 50,
-    "first": {"url": "/segments?database=UUID&offset=0"},
-    "prev": null,
-    "next": {"url": "/segments?database=UUID&offset=50"},
-    "last": {"url": "/segments?database=UUID&offset=100"},
-    "items": [
+  "url": "segments?database=UUID",
+  "offset": 0,
+  "limit": 50,
+  "first": {"url": "/segments?database=UUID&offset=0"},
+  "prev": null,
+  "next": {"url": "/segments?database=UUID&offset=50"},
+  "last": {"url": "/segments?database=UUID&offset=100"},
+  "items": [
 {
   "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -360,14 +360,14 @@ GET /segments?database=UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "/segments?database=UUID",
-    "offset": 0,
-    "limit": 50,
-    "first": {"url": "/segments?database=UUID&offset=0"},
-    "prev": null,
-    "next": {"url": "/segments?database=UUID&offset=50"},
-    "last": {"url": "/segments?database=UUID&offset=100"},
-    "items": [
+  "url": "/segments?database=UUID",
+  "offset": 0,
+  "limit": 50,
+  "first": {"url": "/segments?database=UUID&offset=0"},
+  "prev": null,
+  "next": {"url": "/segments?database=UUID&offset=50"},
+  "last": {"url": "/segments?database=UUID&offset=100"},
+  "items": [
 {
   "url": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -420,24 +420,24 @@ GET /segment-memberships?segment=UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "/segment-memberships?segment=UUID",
-    "offset": 0,
-    "limit": 50,
-    "first": {"url": "/segment-memberships?segment=UUID&offset=0"},
-    "prev": null,
-    "next": {"url": "/segment-memberships?segment=UUID&offset=50"},
-    "last": {"url": "/segment-memberships?segment=UUID&offset=100"},
-    "items": [
+  "url": "/segment-memberships?segment=UUID",
+  "offset": 0,
+  "limit": 50,
+  "first": {"url": "/segment-memberships?segment=UUID&offset=0"},
+  "prev": null,
+  "next": {"url": "/segment-memberships?segment=UUID&offset=50"},
+  "last": {"url": "/segment-memberships?segment=UUID&offset=100"},
+  "items": [
 {
   "url": "/segment-memberships?user=UUID&segment=UUID",
   "user": { 
-      "url": "/users/UUID" 
-      // ... other fields omitted for brevity
+    "url": "/users/UUID" 
+    // ... other fields omitted for brevity
   },
   "segment": { 
-      "url": "/segments/UUID" 
-      // ... other fields omitted for brevity
-      }
+    "url": "/segments/UUID" 
+    // ... other fields omitted for brevity
+    }
 }
 ]}
 
@@ -470,11 +470,14 @@ GET /segment-rebuild-requests/UUID
 < 200
 < Content-Type: application/json
 {
-    "url": "/segment-rebuild-requests/UUID",
-    "state": "SCHEDULED", // SCHEDULED / CANCELLED / COMPLETE / FAILURE
-    "segment": { "url": "/segments/UUID" },
-    "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
-    "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+  "url": "/segment-rebuild-requests/UUID",
+  "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE / FAILURE
+  "segment": { "url": "/segments/UUID" },
+  "message": null, // Used for FAILURE requests
+  "dateStarted": null, // ISO 8601 Date string
+  "dateFinished": null, // ISO 8601 Date string
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
 List Segment Rebuild Requests that belong to this Manager
@@ -482,34 +485,33 @@ GET /segment-rebuild-requests
 < 200
 < Content-Type: application/json
 {
-    "url": "/segment-rebuild-requests",
-    "offset": 0,
-    "limit": 50,
-    "first": {"url": "/segment-rebuild-requests?offset=0"},
-    "prev": null,
-    "next": {"url": "/segment-rebuild-requests?offset=50"},
-    "last": {"url": "/segment-rebuild-requests?offset=100"},
-    "items": [
+  "url": "/segment-rebuild-requests",
+  "offset": 0,
+  "limit": 50,
+  "first": {"url": "/segment-rebuild-requests?offset=0"},
+  "prev": null,
+  "next": {"url": "/segment-rebuild-requests?offset=50"},
+  "last": {"url": "/segment-rebuild-requests?offset=100"},
+  "items": [
 {
-    "url": "/segment-rebuild-requests/UUID"
-    // ... other fields omitted for brevity
+  "url": "/segment-rebuild-requests/UUID"
+  // ... other fields omitted for brevity
 }
 ]}
 
-Create new Segment Membership
-PUT /segment-memberships
+Create new Segment Rebuild Request
+PUT /segment-rebuild-requests/UUID
 > Content-Type: application/json
 {
-  "user": { "url": "/users/UUID" },
   "segment": { "url": "/segments/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segment-memberships?user=UUID&segment=UUID"
+  "url": "/segment-rebuild-requests/UUID"
   // ... other fields omitted for brevity
 }
 
-Delete Segment Membership
-DELETE /segment-memberships?user=UUID&segment=UUID
+Delete Segment Rebuild Request
+DELETE /segment-rebuild-requests/UUID
 < 204
