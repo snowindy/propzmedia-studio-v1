@@ -417,17 +417,7 @@ User Segment Membership Resources
 The following is a section of resources related to User Segment Memberships
 --
 
-Get Segment Membership
-GET /segment-memberships?user=UUID&segment=UUID
-< 200
-< Content-Type: application/json
-{
-  "url": "/segment-memberships/UUID",
-  "user": { "url": "/users/UUID" },
-  "segment": { "url": "/segments/UUID" }
-}
-
-List segment memberships
+List segment Memberships
 GET /segment-memberships?segment=UUID
 < 200
 < Content-Type: application/json
@@ -441,9 +431,32 @@ GET /segment-memberships?segment=UUID
     "last": {"url": "/segment-memberships?segment=UUID&offset=100"},
     "items": [
 {
-  "url": "/segment-memberships/UUID"
-  // ... other fields omitted for brevity
+  "url": "/segment-memberships?user=UUID&segment=UUID",
+  "user": { 
+      "url": "/users/UUID" 
+      // ... other fields omitted for brevity
+  },
+  "segment": { 
+      "url": "/segments/UUID" 
+      // ... other fields omitted for brevity
+      }
 }
 ]}
 
+Create new Segment Membership
+PUT /segment-memberships
+> Content-Type: application/json
+{
+  "user": { "url": "/users/UUID" },
+  "segment": { "url": "/segments/UUID" }
+}
+< 201
+< Content-Type: application/json
+{
+  "url": "/segment-memberships?user=UUID&segment=UUID"
+  // ... other fields omitted for brevity
+}
 
+Delete Segment Membership
+DELETE /segment-memberships?user=UUID&segment=UUID
+< 204
