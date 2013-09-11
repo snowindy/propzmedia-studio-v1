@@ -472,46 +472,48 @@ DELETE /segment-memberships?user=UUID&segment=UUID
 
 
 --
-Segment Rebuild Request Resources
-The following is a section of resources related to Segment Rebuild Requests
+Segment Rebuild Job Resources
+The following is a section of resources related to Segment Rebuild Jobs
 --
 
-Get Segment Rebuild Request
-GET /segment-rebuild-requests/UUID
+Get Segment Rebuild Job
+GET /segment-rebuild-jobs/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segment-rebuild-requests/UUID",
-  "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE / FAILURE
+  "url": "/segment-rebuild-jobs/UUID",
+  "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
   "segment": { "url": "/segments/UUID" },
-  "message": null, // Used for FAILURE requests
   "dateStarted": null, // ISO 8601 Date string
   "dateFinished": null, // ISO 8601 Date string
+  "currentProgress": 0, // Will be updated time to time for client polling
+  "goal": 0, // Will be updated when job starts
+  "response": null, // Report a stream of errors and logs
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
-List Segment Rebuild Requests that belong to this Manager
-GET /segment-rebuild-requests
+List Segment Rebuild Jobs that belong to this Manager
+GET /segment-rebuild-jobs
 < 200
 < Content-Type: application/json
 {
-  "url": "/segment-rebuild-requests",
+  "url": "/segment-rebuild-jobs",
   "offset": 0,
   "limit": 50,
-  "first": {"url": "/segment-rebuild-requests?offset=0"},
+  "first": {"url": "/segment-rebuild-jobs?offset=0"},
   "prev": null,
-  "next": {"url": "/segment-rebuild-requests?offset=50"},
-  "last": {"url": "/segment-rebuild-requests?offset=100"},
+  "next": {"url": "/segment-rebuild-jobs?offset=50"},
+  "last": {"url": "/segment-rebuild-jobs?offset=100"},
   "items": [
 {
-  "url": "/segment-rebuild-requests/UUID"
+  "url": "/segment-rebuild-jobs/UUID"
   // ... other fields omitted for brevity
 }
 ]}
 
-Create new Segment Rebuild Request
-PUT /segment-rebuild-requests/UUID
+Create new Segment Rebuild Job
+PUT /segment-rebuild-jobs/UUID
 > Content-Type: application/json
 {
   "segment": { "url": "/segments/UUID" }
@@ -519,10 +521,10 @@ PUT /segment-rebuild-requests/UUID
 < 201
 < Content-Type: application/json
 {
-  "url": "/segment-rebuild-requests/UUID"
+  "url": "/segment-rebuild-jobs/UUID"
   // ... other fields omitted for brevity
 }
 
-Delete Segment Rebuild Request
-DELETE /segment-rebuild-requests/UUID
+Delete Segment Rebuild Job
+DELETE /segment-rebuild-jobs/UUID
 < 204
