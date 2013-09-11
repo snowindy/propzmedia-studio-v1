@@ -70,8 +70,9 @@ GET /credentials/UUID
 < Content-Type: application/json
 {
   "url": "/credentials/UUID",
-  "apiKey": "UUID", // Optional
-  "targetMgr": { "url": "/managers/UUID" }, // Optional
+  "apiKey": "UUID", // May be null if "targetMgr" present
+  "targetMgr": { "url": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
+  "targetMgrInvitation": { "url": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
   "marketingDb": { "url": "/databases/UUID" },
