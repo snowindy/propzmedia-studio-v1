@@ -163,6 +163,7 @@ GET /managers/UUID
   "lastName": "Smith",
   "company": "Propzmedia",
   "emailConfirmation": { "href": "/managers/UUID/confirm/email" },
+  "managerInvitations" : { "href": "/manager-invitations?creator=UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -201,8 +202,6 @@ POST /managers/UUID
   // ... other fields omitted for brevity
 }
 
-
-
 --
 Manager Invitation Resources
 The following is a section of resources related to Manager Invitations
@@ -218,23 +217,24 @@ GET /manager-invitations/UUID
   "active": true,
   "sendStatus": "SENT", // NOT_SENT / SENT / FAILURE
   "targetMgr": null, // If null - invitation has not been utilized
+  "creatorMgr": { "href": "/managers/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
-List Manager Invitation created by this Manager
-GET /manager-invitations
+List Manager Invitation created by certain Manager
+GET /manager-invitations?creator=UUID
 < 200
 < Content-Type: application/x-collection+json
 {
   "href": "/manager-invitations",
   "offset": 0,
   "limit": 50,
-  "first": {"href": "/manager-invitations?offset=0"},
+  "first": {"href": "/manager-invitations?creator=UUID&offset=0"},
   "prev": null,
-  "next": {"href": "/manager-invitations?offset=50"},
-  "last": {"href": "/manager-invitations?offset=100"},
+  "next": {"href": "/manager-invitations?creator=UUID&offset=50"},
+  "last": {"href": "/manager-invitations?creator=UUID&offset=100"},
   "items": [
 {
   "href": "/manager-invitations/UUID"
