@@ -7,6 +7,20 @@ Welcome to Propzmedia API v1 documentation. All comments can be written in (supp
 ---
 
 --
+Dashboard Resources
+The following is a section of resources related to Dashboard
+--
+
+Get logged-in Manager Dashboard
+GET /
+< 200
+< Content-Type: application/x-resource+json
+{
+  "href": "/",
+  "manager": "/managers/UUID" // Shows logged-in manager's ID
+}
+
+--
 Marketing Database Resources
 The following is a section of resources related to Marketing Databases
 --
@@ -75,7 +89,7 @@ GET /credentials/UUID
   "targetMgrInvitation": { "href": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
-  "marketingDb": { "href": "/databases/UUID" },
+  "db": { "href": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
@@ -111,7 +125,7 @@ PUT /credentials/UUID
   "targetMgrInvitation": { "href": "manager-invitations/UUID" } // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
-  "marketingDb": { "href": "/databases/UUID" },
+  "db": { "href": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -151,7 +165,7 @@ The following is a section of resources related to Managers
 --
 
 Get Manager
-GET /managers/UUID
+GET /managers/UUID[?expand=credentials.db]
 < 200
 < Content-Type: application/x-resource+json
 {
@@ -312,7 +326,7 @@ GET /segments/UUID
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "href": "/databases/UUID" },
+  "db": { "href": "/databases/UUID" },
   "segmentMembership": { "href": "/segment-memberships?segment=UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
@@ -344,7 +358,7 @@ PUT /segments/UUID
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "href": "/databases/UUID" }
+  "db": { "href": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/x-resource+json
@@ -389,7 +403,7 @@ GET /users/UUID[?expand=properties]
   "properties": [
       { "href": "/user-properies/UUID" }
   ],
-  "marketingDb": { "href": "/databases/UUID" },
+  "db": { "href": "/databases/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -405,7 +419,7 @@ PUT /users/UUID
         // ... other fields omitted for brevity
       }
   ],
-  "marketingDb": { "href": "/databases/UUID" }
+  "db": { "href": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/x-resource+json
