@@ -266,17 +266,17 @@ The following is a section of resources related to Manager Invitations
 --
 
 List Manager Invitation created by certain Manager
-GET /manager-invitations?creatorMgr=UUID
+GET /manager/UUID/invitations
 < 200
 < Content-Type: application/x-collection+json
 {
   "href": "/manager-invitations",
   "offset": 0,
   "limit": 50,
-  "first": {"href": "/manager-invitations?creatorMgr=UUID&offset=0"},
+  "first": {"href": "/manager/UUID/invitations?offset=0"},
   "prev": null,
-  "next": {"href": "/manager-invitations?creatorMgr=UUID&offset=50"},
-  "last": {"href": "/manager-invitations?creatorMgr=UUID&offset=100"},
+  "next": {"href": "/manager/UUID/invitations?offset=50"},
+  "last": {"href": "/manager/UUID/invitations?offset=100"},
   "items": [
 {
   "href": "/manager-invitations/UUID"
