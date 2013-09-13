@@ -215,6 +215,19 @@ GET /managers/UUID/confirmation/email
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
+Update Email Confirmation
+POST /manager-invitations/UUID
+> Content-Type: application/json
+{
+  "status": "CONFIRMED"
+}
+< 200
+< Content-Type: application/x-resource+json
+{
+  "href": "/managers/UUID/confirmation/email"
+  // ... other fields omitted for brevity
+}
+
 --
 Manager Invitation Resources
 The following is a section of resources related to Manager Invitations
