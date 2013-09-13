@@ -106,7 +106,7 @@ PUT /credentials/UUID
 > Content-Type: application/json
 {
   "apiKey": "UUID", // Optional
-  "apiSecret": "UUID", // Password to be encrypted. Optional
+  "apiSecret": "NEW_PASSWORD", // Password to be encrypted. Optional
   "targetMgr": { "href": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
   "targetMgrInvitation": { "href": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
@@ -126,7 +126,7 @@ Update Credential
 POST /credentials/UUID
 > Content-Type: application/json
 {
-  "apiSecret": "UUID", // Password to be encrypted. Optional
+  "apiSecret": "NEW_PASSWORD", // Password to be encrypted. Optional
   "accessLevel": "WRITE", // STAFF / ADMIN / WRITE / READ
   "active": false,
   "type": "WS", // CONSOLE / WS
@@ -170,7 +170,7 @@ PUT /managers/UUID
   "username": "john", 
   "firstName": "John",
   "lastName": "Smith",
-  "password": "UUID", // Password to be encrypted. Optional
+  "password": "NEW_PASSWORD", // Password to be encrypted. Optional
 }
 < 201
 < Content-Type: application/x-resource+json
@@ -185,7 +185,7 @@ POST /managers/UUID
 {
   "firstName": "Mark",
   "lastName": "Twain",
-  "password": "UUID", // Password to be encrypted. Optional
+  "password": "NEW_PASSWORD", // Password to be encrypted. Optional
 }
 < 200
 < Content-Type: application/x-resource+json
@@ -476,11 +476,11 @@ The following is a section of resources related to Executor Statuses
 --
 
 Get Executor Status
-GET /segment-rebuild-jobs/UUID
+GET /executor-status/UUID
 < 200
 < Content-Type: application/x-resource+json
 {
-  "href": "/segment-rebuild-jobs/UUID",
+  "href": "/executor-status/UUID",
   "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
   "segment": { "href": "/segments/UUID" },
   "dateStarted": null, // ISO 8601 Date string
