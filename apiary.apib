@@ -157,8 +157,10 @@ GET /managers/UUID
 {
   "href": "/managers/UUID",
   "username": "john", 
+  "email": "john@gmail.com",
   "firstName": "John",
   "lastName": "Smith",
+  "company": "Propzmedia",
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -168,8 +170,10 @@ PUT /managers/UUID
 > Content-Type: application/json
 {
   "username": "john", 
+  "email": "john@gmail.com",
   "firstName": "John",
   "lastName": "Smith",
+  "company": "Propzmedia",
   "password": "NEW_PASSWORD", // Password to be encrypted. Optional
 }
 < 201
