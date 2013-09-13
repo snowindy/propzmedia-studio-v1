@@ -476,7 +476,7 @@ The following is a section of resources related to Executor Statuses
 --
 
 Get Executor Status
-GET /executor-status/UUID[?expand=response]
+GET /executor-status/UUID
 < 200
 < Content-Type: application/x-resource+json
 {
@@ -535,13 +535,8 @@ GET /segment-rebuild-jobs/UUID
 < Content-Type: application/x-resource+json
 {
   "href": "/segment-rebuild-jobs/UUID",
-  "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
   "segment": { "href": "/segments/UUID" },
-  "dateStarted": null, // ISO 8601 Date string
-  "dateFinished": null, // ISO 8601 Date string
-  "progress": 0, // Will be updated time to time for client polling
-  "goal": 0, // Will be updated when job starts
-  "response": null, // Report a stream of errors and logs
+  "status": { "href": "/executor-status/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
