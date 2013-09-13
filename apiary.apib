@@ -85,10 +85,9 @@ GET /credentials/UUID
 {
   "href": "/credentials/UUID",
   "apiKey": "UUID", // May be null if "targetMgr" present
-  "targetMgr": { "href": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
-  "targetMgrInvitation": { "href": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
+  "authorMgr": { "href": "/managers/UUID" },
   "db": { "href": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
@@ -96,18 +95,37 @@ GET /credentials/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
-List Credentials for specific Manager
-GET /credentials?targetMgr=UUID
+List Credentials created by specific Manager
+GET /credentials?authorMgr=UUID
 < 200
 < Content-Type: application/x-collection+json
 { 
-  "href": "/credentials",
+  "href": "/credentials?authorMgr=UUID",
   "offset": 0,
   "limit": 50,
-  "first": {"href": "/credentials?offset=0"},
+  "first": {"href": "/credentials?authorMgr=UUID&offset=0"},
   "prev": null,
-  "next": {"href": "/credentials?offset=50"},
-  "last": {"href": "/credentials?offset=100"},
+  "next": {"href": "/credentials?authorMgr=UUID&offset=50"},
+  "last": {"href": "/credentials?authorMgr=UUID&offset=100"},
+  "items": [
+{
+  "href": "/credentials/UUID"
+  // ... other fields omitted for brevity
+}
+] }
+
+List Credentials for specific Manager
+GET /managers/UUID/credentials
+< 200
+< Content-Type: application/x-collection+json
+{ 
+  "href": "/managers/UUID/credentials",
+  "offset": 0,
+  "limit": 50,
+  "first": {"href": "/managers/UUID/credentials?offset=0"},
+  "prev": null,
+  "next": {"href": "/managers/UUID/credentials?offset=50"},
+  "last": {"href": "/managers/UUID/credentials?offset=100"},
   "items": [
 {
   "href": "/credentials/UUID"
@@ -121,8 +139,6 @@ PUT /credentials/UUID
 {
   "apiKey": "UUID", // Optional
   "apiSecret": "NEW_PASSWORD", // Password to be encrypted. Optional
-  "targetMgr": { "href": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
-  "targetMgrInvitation": { "href": "manager-invitations/UUID" } // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
   "db": { "href": "/databases/UUID" },
