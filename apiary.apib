@@ -14,7 +14,7 @@ The following is a section of resources related to Marketing Databases
 Get Marketing Database
 GET /databases/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/databases/UUID",
   "name": "SocioMMA",
@@ -31,7 +31,7 @@ PUT /databases/UUID
   "inChargeMgr": { "href": "/managers/UUID" }
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/databases/UUID"
   // ... other fields omitted for brevity
@@ -47,7 +47,7 @@ POST /databases/UUID
   }
 }
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/databases/UUID"
   // ... other fields omitted for brevity
@@ -67,7 +67,7 @@ The following is a section of resources related to Credentials
 Get Credential
 GET /credentials/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/credentials/UUID",
   "apiKey": "UUID", // May be null if "targetMgr" present
@@ -85,7 +85,7 @@ GET /credentials/UUID
 List Credentials for this Manager
 GET /credentials
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-collection+json
 { 
   "href": "/credentials",
   "offset": 0,
@@ -116,7 +116,7 @@ PUT /credentials/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/credentials/UUID"
   // ... other fields omitted for brevity
@@ -133,7 +133,7 @@ POST /credentials/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/credentials/UUID"
   // ... other fields omitted for brevity
@@ -153,7 +153,7 @@ The following is a section of resources related to Managers
 Get Manager
 GET /managers/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/managers/UUID",
   "username": "john", 
@@ -173,7 +173,7 @@ PUT /managers/UUID
   "password": "UUID", // Password to be encrypted. Optional
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/managers/UUID"
   // ... other fields omitted for brevity
@@ -188,7 +188,7 @@ POST /managers/UUID
   "password": "UUID", // Password to be encrypted. Optional
 }
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/managers/UUID"
   // ... other fields omitted for brevity
@@ -204,7 +204,7 @@ The following is a section of resources related to Manager Invitations
 Get Manager Invitation
 GET /manager-invitations/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/manager-invitations/UUID",
   "email": "john@gmail.com",
@@ -219,7 +219,7 @@ GET /manager-invitations/UUID
 List Manager Invitation created by this Manager
 GET /manager-invitations
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-collection+json
 {
   "href": "/manager-invitations",
   "offset": 0,
@@ -242,7 +242,7 @@ PUT /manager-invitations/UUID
   "email": "john@gmail.com"
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -256,7 +256,7 @@ POST /manager-invitations/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -271,7 +271,7 @@ The following is a section of resources related to Segments
 Get Segment
 GET /segments/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/segments/UUID",
   "name": "Segment 1",
@@ -286,7 +286,7 @@ GET /segments/UUID
 List Segment for specific Marketing DB
 GET /segments?database=UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-collection+json
 {
   "href": "segments?database=UUID",
   "offset": 0,
@@ -312,7 +312,7 @@ PUT /segments/UUID
   "marketingDb": { "href": "/databases/UUID" }
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/segments/UUID"
   // ... other fields omitted for brevity
@@ -327,7 +327,7 @@ POST /segments/UUID
   "rebuildFrequency": "WEEKLY" // HOURLY / DAILY / WEEKLY / MONTHLY
 }
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/segments/UUID"
   // ... other fields omitted for brevity
@@ -346,7 +346,7 @@ The following is a section of resources related to Users
 Get User
 GET /users/UUID[?expand=properties]
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/users/UUID",
   "email": "louis@gmail.com",
@@ -373,7 +373,7 @@ PUT /users/UUID
   "marketingDb": { "href": "/databases/UUID" }
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/users/UUID"
   // ... other fields omitted for brevity
@@ -388,7 +388,7 @@ POST /users/UUID
   ]
 }
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/users/UUID"
   // ... other fields omitted for brevity
@@ -406,7 +406,7 @@ The following is a section of resources related to User Properties
 Get User Property
 GET /user-properties/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/user-property/UUID",
   "name": "Age",
@@ -429,7 +429,7 @@ The following is a section of resources related to User Segment Memberships
 List users belonging to Segment (Segment Memberships)
 GET /segment-memberships?segment=UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-collection+json
 {
   "href": "/segment-memberships?segment=UUID",
   "offset": 0,
@@ -460,7 +460,7 @@ PUT /segment-memberships
   "segment": { "href": "/segments/UUID" }
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/segment-memberships?user=UUID&segment=UUID"
   // ... other fields omitted for brevity
@@ -479,7 +479,7 @@ The following is a section of resources related to Segment Rebuild Jobs
 Get Segment Rebuild Job
 GET /segment-rebuild-jobs/UUID
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/segment-rebuild-jobs/UUID",
   "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
@@ -496,7 +496,7 @@ GET /segment-rebuild-jobs/UUID
 List Segment Rebuild Jobs that belong to this Manager
 GET /segment-rebuild-jobs
 < 200
-< Content-Type: application/json
+< Content-Type: application/x-collection+json
 {
   "href": "/segment-rebuild-jobs",
   "offset": 0,
@@ -519,7 +519,7 @@ PUT /segment-rebuild-jobs/UUID
   "segment": { "href": "/segments/UUID" }
 }
 < 201
-< Content-Type: application/json
+< Content-Type: application/x-resource+format
 {
   "href": "/segment-rebuild-jobs/UUID"
   // ... other fields omitted for brevity
