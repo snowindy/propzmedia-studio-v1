@@ -310,6 +310,15 @@ GET /manager-invitations/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
+Get Manager Invitation by token
+GET /manager-invitations?token=UUID
+< 200
+< Content-Type: application/x-resource+json
+{
+  "href": "/manager-invitations/UUID"
+  // ... other fields omitted for brevity
+}
+
 Create new Manager Invitation
 PUT /manager/UUID/invitations/UUID
 > Content-Type: application/json
