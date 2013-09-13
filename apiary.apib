@@ -14,7 +14,7 @@ The following is a section of resources related to Marketing Databases
 Get Marketing Database
 GET /databases/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/databases/UUID",
   "name": "SocioMMA",
@@ -31,7 +31,7 @@ PUT /databases/UUID
   "inChargeMgr": { "href": "/managers/UUID" }
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/databases/UUID"
   // ... other fields omitted for brevity
@@ -47,7 +47,7 @@ POST /databases/UUID
   }
 }
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/databases/UUID"
   // ... other fields omitted for brevity
@@ -67,7 +67,7 @@ The following is a section of resources related to Credentials
 Get Credential
 GET /credentials/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/credentials/UUID",
   "apiKey": "UUID", // May be null if "targetMgr" present
@@ -116,7 +116,7 @@ PUT /credentials/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/credentials/UUID"
   // ... other fields omitted for brevity
@@ -133,7 +133,7 @@ POST /credentials/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/credentials/UUID"
   // ... other fields omitted for brevity
@@ -153,7 +153,7 @@ The following is a section of resources related to Managers
 Get Manager
 GET /managers/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/managers/UUID",
   "username": "john", 
@@ -173,7 +173,7 @@ PUT /managers/UUID
   "password": "UUID", // Password to be encrypted. Optional
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/managers/UUID"
   // ... other fields omitted for brevity
@@ -188,7 +188,7 @@ POST /managers/UUID
   "password": "UUID", // Password to be encrypted. Optional
 }
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/managers/UUID"
   // ... other fields omitted for brevity
@@ -204,7 +204,7 @@ The following is a section of resources related to Manager Invitations
 Get Manager Invitation
 GET /manager-invitations/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/manager-invitations/UUID",
   "email": "john@gmail.com",
@@ -242,7 +242,7 @@ PUT /manager-invitations/UUID
   "email": "john@gmail.com"
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -256,7 +256,7 @@ POST /manager-invitations/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
@@ -271,7 +271,7 @@ The following is a section of resources related to Segments
 Get Segment
 GET /segments/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/segments/UUID",
   "name": "Segment 1",
@@ -312,7 +312,7 @@ PUT /segments/UUID
   "marketingDb": { "href": "/databases/UUID" }
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/segments/UUID"
   // ... other fields omitted for brevity
@@ -327,7 +327,7 @@ POST /segments/UUID
   "rebuildFrequency": "WEEKLY" // HOURLY / DAILY / WEEKLY / MONTHLY
 }
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/segments/UUID"
   // ... other fields omitted for brevity
@@ -346,7 +346,7 @@ The following is a section of resources related to Users
 Get User
 GET /users/UUID[?expand=properties]
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/users/UUID",
   "email": "louis@gmail.com",
@@ -373,7 +373,7 @@ PUT /users/UUID
   "marketingDb": { "href": "/databases/UUID" }
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/users/UUID"
   // ... other fields omitted for brevity
@@ -388,7 +388,7 @@ POST /users/UUID
   ]
 }
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/users/UUID"
   // ... other fields omitted for brevity
@@ -406,7 +406,7 @@ The following is a section of resources related to User Properties
 Get User Property
 GET /user-properties/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/user-property/UUID",
   "name": "Age",
@@ -460,7 +460,7 @@ PUT /segment-memberships
   "segment": { "href": "/segments/UUID" }
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/segment-memberships?user=UUID&segment=UUID"
   // ... other fields omitted for brevity
@@ -470,16 +470,15 @@ Delete Segment Membership
 DELETE /segment-memberships?user=UUID&segment=UUID
 < 204
 
-
 --
-Segment Rebuild Job Resources
-The following is a section of resources related to Segment Rebuild Jobs
+Executor Status Resources
+The following is a section of resources related to Executor Statuses
 --
 
-Get Segment Rebuild Job
+Get Executor Status
 GET /segment-rebuild-jobs/UUID
 < 200
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
 {
   "href": "/segment-rebuild-jobs/UUID",
   "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
@@ -519,7 +518,66 @@ PUT /segment-rebuild-jobs/UUID
   "segment": { "href": "/segments/UUID" }
 }
 < 201
-< Content-Type: application/x-resource+format
+< Content-Type: application/x-resource+json
+{
+  "href": "/segment-rebuild-jobs/UUID"
+  // ... other fields omitted for brevity
+}
+
+Delete Segment Rebuild Job
+DELETE /segment-rebuild-jobs/UUID
+< 204
+
+
+--
+Segment Rebuild Job Resources
+The following is a section of resources related to Segment Rebuild Jobs
+--
+
+Get Segment Rebuild Job
+GET /segment-rebuild-jobs/UUID
+< 200
+< Content-Type: application/x-resource+json
+{
+  "href": "/segment-rebuild-jobs/UUID",
+  "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
+  "segment": { "href": "/segments/UUID" },
+  "dateStarted": null, // ISO 8601 Date string
+  "dateFinished": null, // ISO 8601 Date string
+  "progress": 0, // Will be updated time to time for client polling
+  "goal": 0, // Will be updated when job starts
+  "response": null, // Report a stream of errors and logs
+  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+}
+
+List Segment Rebuild Jobs that belong to this Manager
+GET /segment-rebuild-jobs
+< 200
+< Content-Type: application/x-collection+json
+{
+  "href": "/segment-rebuild-jobs",
+  "offset": 0,
+  "limit": 50,
+  "first": {"href": "/segment-rebuild-jobs?offset=0"},
+  "prev": null,
+  "next": {"href": "/segment-rebuild-jobs?offset=50"},
+  "last": {"href": "/segment-rebuild-jobs?offset=100"},
+  "items": [
+{
+  "href": "/segment-rebuild-jobs/UUID"
+  // ... other fields omitted for brevity
+}
+]}
+
+Create new Segment Rebuild Job
+PUT /segment-rebuild-jobs/UUID
+> Content-Type: application/json
+{
+  "segment": { "href": "/segments/UUID" }
+}
+< 201
+< Content-Type: application/x-resource+json
 {
   "href": "/segment-rebuild-jobs/UUID"
   // ... other fields omitted for brevity
