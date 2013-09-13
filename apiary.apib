@@ -82,8 +82,8 @@ GET /credentials/UUID
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 
-List Credentials for this Manager
-GET /credentials
+List Credentials for specific Manager
+GET /credentials?targetMgr=UUID
 < 200
 < Content-Type: application/x-collection+json
 { 
@@ -165,6 +165,7 @@ GET /managers/UUID
   "status": "ACTIVE", // ACTIVE / AWAITING_CONFIRMATION
   "emailConfirmation": { "href": "/managers/UUID/confirmation/email" },
   "managerInvitations" : { "href": "/manager-invitations?creatorMgr=UUID" },
+  "credentials": { "href": "/credentials?targetMgr=UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
