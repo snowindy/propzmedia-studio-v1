@@ -487,22 +487,18 @@ GET /executor-status/UUID[?expand=response]
   "dateFinished": null, // ISO 8601 Date string
   "progress": 0, // Will be updated time to time for client polling
   "goal": 0, // Will be updated when job starts
-  "response": { "href": "/executor-status/UUID/response" } // As response may be large, we by default don't return it: we leave this option to client.
-  "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
-  "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
-}
-
-Get Executor Status Response
-GET /executor-status/UUID/response
-< 200
-< Content-Type: application/x-resource+json
-{
-  "href": "/executor-status/UUID/response",
-  "messageItems": {
-      "messages": { "href": "/executor-status/UUID/response/messages;message" },
-      "warnings": { "href": "/executor-status/UUID/response/messages;warning" },
-      "errors": { "href": "/executor-status/UUID/response/messages;error" }
-  },
+  "response": { 
+      {
+        "href": "/executor-status/UUID/response",
+        "messageItems": {
+        "messages": { "href": "/executor-status/UUID/response/messages;message" },
+            "warnings": { "href": "/executor-status/UUID/response/messages;warning" },
+            "errors": { "href": "/executor-status/UUID/response/messages;error" }
+        },
+        "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
+        "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
+        }
+    } 
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
