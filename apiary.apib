@@ -197,7 +197,7 @@ GET /managers/UUID[?expand=credentials.db]
   "company": "Propzmedia",
   "status": "ACTIVE", // ACTIVE / AWAITING_CONFIRMATION
   "emailConfirmation": { "href": "/managers/UUID/confirmation/email" },
-  "managerInvitations" : { "href": "/manager-invitations?creatorMgr=UUID" },
+  "managerInvitations" : { "href": "/managers/UUID/invitations" },
   "credentials": { "href": "/credentials?targetMgr=UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
@@ -298,7 +298,7 @@ GET /manager-invitations/UUID
   "active": true,
   "sendStatus": "SENT", // NOT_SENT / SENT / FAILURE
   "targetMgr": null, // If null - invitation has not been utilized
-  "creatorMgr": { "href": "/managers/UUID" },
+  "authorMgr": { "href": "/managers/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
