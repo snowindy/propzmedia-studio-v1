@@ -16,9 +16,9 @@ GET /databases/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/databases/UUID",
+  "href": "/databases/UUID",
   "name": "SocioMMA",
-  "inChargeMgr": { "url": "/managers/UUID" },
+  "inChargeMgr": { "href": "/managers/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -28,12 +28,12 @@ PUT /databases/UUID
 > Content-Type: application/json
 {
   "name": "SocioMMA",
-  "inChargeMgr": { "url": "/managers/UUID" }
+  "inChargeMgr": { "href": "/managers/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/databases/UUID"
+  "href": "/databases/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -43,13 +43,13 @@ POST /databases/UUID
 {
   "name": "SuccessoClub",
   "inChargeMgr": { // Optional
-  "url": "/managers/UUID"
+  "href": "/managers/UUID"
   }
 }
 < 200
 < Content-Type: application/json
 {
-  "url": "/databases/UUID"
+  "href": "/databases/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -69,13 +69,13 @@ GET /credentials/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/credentials/UUID",
+  "href": "/credentials/UUID",
   "apiKey": "UUID", // May be null if "targetMgr" present
-  "targetMgr": { "url": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
-  "targetMgrInvitation": { "url": "manager-invitations/UUID"} // Coupled with "targetMgr"
+  "targetMgr": { "href": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
+  "targetMgrInvitation": { "href": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
-  "marketingDb": { "url": "/databases/UUID" },
+  "marketingDb": { "href": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
@@ -87,16 +87,16 @@ GET /credentials
 < 200
 < Content-Type: application/json
 { 
-  "url": "/credentials",
+  "href": "/credentials",
   "offset": 0,
   "limit": 50,
-  "first": {"url": "/credentials?offset=0"},
+  "first": {"href": "/credentials?offset=0"},
   "prev": null,
-  "next": {"url": "/credentials?offset=50"},
-  "last": {"url": "/credentials?offset=100"},
+  "next": {"href": "/credentials?offset=50"},
+  "last": {"href": "/credentials?offset=100"},
   "items": [
 {
-  "url": "/credentials/UUID"
+  "href": "/credentials/UUID"
   // ... other fields omitted for brevity
 }
 ] }
@@ -107,18 +107,18 @@ PUT /credentials/UUID
 {
   "apiKey": "UUID", // Optional
   "apiSecret": "UUID", // Password to be encrypted. Optional
-  "targetMgr": { "url": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
-  "targetMgrInvitation": { "url": "manager-invitations/UUID"} // Coupled with "targetMgr"
+  "targetMgr": { "href": "/managers/UUID" }, // May be null if "apiKey"/"apiSecret" present
+  "targetMgrInvitation": { "href": "manager-invitations/UUID"} // Coupled with "targetMgr"
   "accessLevel": "ADMIN", // STAFF / ADMIN / WRITE / READ
   "active": true,
-  "marketingDb": { "url": "/databases/UUID" },
+  "marketingDb": { "href": "/databases/UUID" },
   "type": "CONSOLE", // CONSOLE / WS
   "validUntil": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/credentials/UUID"
+  "href": "/credentials/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -135,7 +135,7 @@ POST /credentials/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/credentials/UUID"
+  "href": "/credentials/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -155,7 +155,7 @@ GET /managers/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/managers/UUID",
+  "href": "/managers/UUID",
   "username": "john", 
   "firstName": "John",
   "lastName": "Smith",
@@ -175,7 +175,7 @@ PUT /managers/UUID
 < 201
 < Content-Type: application/json
 {
-  "url": "/managers/UUID"
+  "href": "/managers/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -190,7 +190,7 @@ POST /managers/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/managers/UUID"
+  "href": "/managers/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -206,7 +206,7 @@ GET /manager-invitations/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/manager-invitations/UUID",
+  "href": "/manager-invitations/UUID",
   "email": "john@gmail.com",
   "active": true,
   "sendStatus": "SENT", // NOT_SENT / SENT / FAILURE
@@ -221,16 +221,16 @@ GET /manager-invitations
 < 200
 < Content-Type: application/json
 {
-  "url": "/manager-invitations",
+  "href": "/manager-invitations",
   "offset": 0,
   "limit": 50,
-  "first": {"url": "/manager-invitations?offset=0"},
+  "first": {"href": "/manager-invitations?offset=0"},
   "prev": null,
-  "next": {"url": "/manager-invitations?offset=50"},
-  "last": {"url": "/manager-invitations?offset=100"},
+  "next": {"href": "/manager-invitations?offset=50"},
+  "last": {"href": "/manager-invitations?offset=100"},
   "items": [
 {
-  "url": "/manager-invitations/UUID"
+  "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 ]}
@@ -244,7 +244,7 @@ PUT /manager-invitations/UUID
 < 201
 < Content-Type: application/json
 {
-  "url": "/manager-invitations/UUID"
+  "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -258,7 +258,7 @@ POST /manager-invitations/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/manager-invitations/UUID"
+  "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -273,12 +273,12 @@ GET /segments/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segments/UUID",
+  "href": "/segments/UUID",
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "url": "/databases/UUID" },
-  "segmentMembership": { "url": "/segment-memberships?segment=UUID" },
+  "marketingDb": { "href": "/databases/UUID" },
+  "segmentMembership": { "href": "/segment-memberships?segment=UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -288,16 +288,16 @@ GET /segments?database=UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "segments?database=UUID",
+  "href": "segments?database=UUID",
   "offset": 0,
   "limit": 50,
-  "first": {"url": "/segments?database=UUID&offset=0"},
+  "first": {"href": "/segments?database=UUID&offset=0"},
   "prev": null,
-  "next": {"url": "/segments?database=UUID&offset=50"},
-  "last": {"url": "/segments?database=UUID&offset=100"},
+  "next": {"href": "/segments?database=UUID&offset=50"},
+  "last": {"href": "/segments?database=UUID&offset=100"},
   "items": [
 {
-  "url": "/manager-invitations/UUID"
+  "href": "/manager-invitations/UUID"
   // ... other fields omitted for brevity
 }
 ]}
@@ -309,12 +309,12 @@ PUT /segments/UUID
   "name": "Segment 1",
   "query": "some query",
   "rebuildFrequency": "DAILY", // HOURLY / DAILY / WEEKLY / MONTHLY
-  "marketingDb": { "url": "/databases/UUID" }
+  "marketingDb": { "href": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segments/UUID"
+  "href": "/segments/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -329,7 +329,7 @@ POST /segments/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segments/UUID"
+  "href": "/segments/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -348,13 +348,13 @@ GET /users/UUID[?expand=properties]
 < 200
 < Content-Type: application/json
 {
-  "url": "/users/UUID",
+  "href": "/users/UUID",
   "email": "louis@gmail.com",
   "uuid": "UUID",
   "properties": [
-      { "url": "/user-properies/UUID" }
+      { "href": "/user-properies/UUID" }
   ],
-  "marketingDb": { "url": "/databases/UUID" },
+  "marketingDb": { "href": "/databases/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -366,16 +366,16 @@ PUT /users/UUID
   "email": "louis@gmail.com",
   "uuid": "UUID",
   "properties": [
-      { "url": "/user-properies/UUID"
+      { "href": "/user-properies/UUID"
         // ... other fields omitted for brevity
       }
   ],
-  "marketingDb": { "url": "/databases/UUID" }
+  "marketingDb": { "href": "/databases/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/users/UUID"
+  "href": "/users/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -384,13 +384,13 @@ POST /users/UUID
 > Content-Type: application/json
 {
   "properties": [
-      { "url": "/user-properies/UUID" }
+      { "href": "/user-properies/UUID" }
   ]
 }
 < 200
 < Content-Type: application/json
 {
-  "url": "/users/UUID"
+  "href": "/users/UUID"
   // ... other fields omitted for brevity
 }
 
@@ -408,11 +408,11 @@ GET /user-properties/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/user-property/UUID",
+  "href": "/user-property/UUID",
   "name": "Age",
   "value": "32", // TODO Understand if we need to manage data type here
   "securityLevel": "PUBLIC", // PUBLIC / FRIEND / PRIVATE / COMPANY
-  "user": { "url": "/users/UUID" },
+  "user": { "href": "/users/UUID" },
   "dateCreated": "2012-07-01T14:22:20.029Z", // ISO 8601 Date string
   "dateUpdated": "2012-07-01T14:22:20.029Z" // ISO 8601 Date string
 }
@@ -431,22 +431,22 @@ GET /segment-memberships?segment=UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segment-memberships?segment=UUID",
+  "href": "/segment-memberships?segment=UUID",
   "offset": 0,
   "limit": 50,
-  "first": {"url": "/segment-memberships?segment=UUID&offset=0"},
+  "first": {"href": "/segment-memberships?segment=UUID&offset=0"},
   "prev": null,
-  "next": {"url": "/segment-memberships?segment=UUID&offset=50"},
-  "last": {"url": "/segment-memberships?segment=UUID&offset=100"},
+  "next": {"href": "/segment-memberships?segment=UUID&offset=50"},
+  "last": {"href": "/segment-memberships?segment=UUID&offset=100"},
   "items": [
 {
-  "url": "/segment-memberships?user=UUID&segment=UUID",
+  "href": "/segment-memberships?user=UUID&segment=UUID",
   "user": { 
-    "url": "/users/UUID" 
+    "href": "/users/UUID" 
     // ... other fields omitted for brevity
   },
   "segment": { 
-    "url": "/segments/UUID" 
+    "href": "/segments/UUID" 
     // ... other fields omitted for brevity
     }
 }
@@ -456,13 +456,13 @@ Create new Segment Membership
 PUT /segment-memberships
 > Content-Type: application/json
 {
-  "user": { "url": "/users/UUID" },
-  "segment": { "url": "/segments/UUID" }
+  "user": { "href": "/users/UUID" },
+  "segment": { "href": "/segments/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segment-memberships?user=UUID&segment=UUID"
+  "href": "/segment-memberships?user=UUID&segment=UUID"
   // ... other fields omitted for brevity
 }
 
@@ -481,9 +481,9 @@ GET /segment-rebuild-jobs/UUID
 < 200
 < Content-Type: application/json
 {
-  "url": "/segment-rebuild-jobs/UUID",
+  "href": "/segment-rebuild-jobs/UUID",
   "status": "SCHEDULED", // SCHEDULED / IN_PROGRESS / COMPLETE
-  "segment": { "url": "/segments/UUID" },
+  "segment": { "href": "/segments/UUID" },
   "dateStarted": null, // ISO 8601 Date string
   "dateFinished": null, // ISO 8601 Date string
   "progress": 0, // Will be updated time to time for client polling
@@ -498,16 +498,16 @@ GET /segment-rebuild-jobs
 < 200
 < Content-Type: application/json
 {
-  "url": "/segment-rebuild-jobs",
+  "href": "/segment-rebuild-jobs",
   "offset": 0,
   "limit": 50,
-  "first": {"url": "/segment-rebuild-jobs?offset=0"},
+  "first": {"href": "/segment-rebuild-jobs?offset=0"},
   "prev": null,
-  "next": {"url": "/segment-rebuild-jobs?offset=50"},
-  "last": {"url": "/segment-rebuild-jobs?offset=100"},
+  "next": {"href": "/segment-rebuild-jobs?offset=50"},
+  "last": {"href": "/segment-rebuild-jobs?offset=100"},
   "items": [
 {
-  "url": "/segment-rebuild-jobs/UUID"
+  "href": "/segment-rebuild-jobs/UUID"
   // ... other fields omitted for brevity
 }
 ]}
@@ -516,12 +516,12 @@ Create new Segment Rebuild Job
 PUT /segment-rebuild-jobs/UUID
 > Content-Type: application/json
 {
-  "segment": { "url": "/segments/UUID" }
+  "segment": { "href": "/segments/UUID" }
 }
 < 201
 < Content-Type: application/json
 {
-  "url": "/segment-rebuild-jobs/UUID"
+  "href": "/segment-rebuild-jobs/UUID"
   // ... other fields omitted for brevity
 }
 
