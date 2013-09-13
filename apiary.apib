@@ -176,7 +176,8 @@ GET /managers/UUID[?expand=credentials.db]
   "firstName": "John",
   "lastName": "Smith",
   "company": "Propzmedia",
-  "status": "ACTIVE", // ACTIVE / AWAITING_CONFIRMATION
+  "status": "ACTIVE",   // ACTIVE / AWAITING_CONFIRMATION. This is a helper read-only attribute. 
+                        //It cannot be changed via update request. See "POST /manager-invitations/UUID" for details.
   "emailConfirmation": { "href": "/managers/UUID/confirmation/email" },
   "managerInvitations" : { "href": "/manager-invitations?creatorMgr=UUID" },
   "credentials": { "href": "/credentials?targetMgr=UUID" },
